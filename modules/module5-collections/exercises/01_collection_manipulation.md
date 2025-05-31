@@ -25,7 +25,10 @@ fn main() {
                 or reference counting present in other memory-safe languages.";
 
     // TODO: 1. Split the text into words and store them in a vector
-    let words = vec![];
+    let words = let words: Vec<&str> = text
+        .split(|c: char| !c.is_alphanumeric())
+        .filter(|s| !s.is_empty())
+        .collect();
 
     // TODO: 2. Count the frequency of each word and store in a HashMap
     let word_counts = HashMap::new();

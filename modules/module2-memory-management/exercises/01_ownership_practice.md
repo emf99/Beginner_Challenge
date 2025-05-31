@@ -16,6 +16,7 @@ Identify and fix the ownership issues in the following code samples. The goal is
 // Example 1: String ownership
 fn main() {
     let s1 = String::from("hello");
+   
     let s2 = s1;
 
     println!("{}, world!", s1); // Error: s1 has been moved
@@ -37,7 +38,7 @@ fn takes_ownership(some_string: String) {
 fn main() {
     let v = vec![1, 2, 3, 4, 5];
 
-    for i in v {
+    for i in &v {
         println!("{}", i);
     }
 

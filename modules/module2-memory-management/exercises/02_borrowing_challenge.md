@@ -20,9 +20,8 @@ Write a Rust program that demonstrates proper use of borrowing and references by
 
 ```rust
 // 1. Processing string data with immutable references
-fn get_length(/* TODO: Add parameter for an immutable reference to a String */) -> usize {
-    // TODO: Return the length of the string
-    0 // Replace this placeholder
+fn get_length(&str) -> usize {
+    str.len()
 }
 
 // 2. Modifying vector data with mutable references
@@ -57,7 +56,7 @@ fn fix_borrowing_issues() {
 fn main() {
     // 1. Test immutable reference function
     let test_string = String::from("Hello, Rust borrowing!");
-    let length = get_length(/* TODO: Pass the string as an immutable reference */);
+    let length = get_length(&test_string);
     println!("String length: {}", length);
     // Verify the string is still usable after passing as reference
     println!("Original string: {}", test_string);

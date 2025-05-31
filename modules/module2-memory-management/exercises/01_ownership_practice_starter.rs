@@ -1,7 +1,7 @@
 // Example 1: String ownership
 fn example1() {
     let s1 = String::from("hello");
-    let s2 = s1;
+    let _s2 = &s1;
 
     println!("{}, world!", s1); // Error: s1 has been moved
 }
@@ -9,12 +9,12 @@ fn example1() {
 // Example 2: Function ownership
 fn example2() {
     let s = String::from("hello");
-    takes_ownership(s);
+    takes_ownership(&s);
 
     println!("After function call: {}", s); // Error: s has been moved
 }
 
-fn takes_ownership(some_string: String) {
+fn takes_ownership(some_string: &String) {
     println!("Inside function: {}", some_string);
 }
 
@@ -22,7 +22,7 @@ fn takes_ownership(some_string: String) {
 fn example3() {
     let v = vec![1, 2, 3, 4, 5];
 
-    for i in v {
+    for i in &v {
         println!("{}", i);
     }
 
